@@ -9,6 +9,7 @@ const port = process.env.PORT;
 //routes init
 const userRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
+const postRouter = require("./routes/posts");
 
 //db connection
 const connection = mongoose
@@ -22,5 +23,6 @@ app.use(helmet());
 app.use(morgan("common"));
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/posts", postRouter);
 
 app.listen(port, () => console.log(`server started at port ${port}`));
